@@ -23,6 +23,10 @@ const styles = StyleSheet.create({
     marginTop: 20,
     padding: 30,
   },
+  containerGeral: {
+    backgroundColor: 'black',
+    flex: 1,
+  },
 
   img: {
     height: 120,
@@ -87,7 +91,7 @@ class Main extends Component {
     const { comics } = this.props;
 
     return (
-      <View>
+      <View style={styles.containerGeral}>
         <FlatList
           style={{ marginTop: 30 }}
           contentContainerStyle={styles.list}
