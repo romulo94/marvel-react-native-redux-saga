@@ -15,6 +15,7 @@ export function* addCommic() {
       api.get,
       `/characters?ts=${ts}&apikey=${publicKey}&hash=${hash}&offset=${offset}&limit=${limit}`,
     );
+
     yield put(ComicActions.addComicsSuccess(data));
   } catch (error) {
     yield put(

@@ -12,21 +12,23 @@ const INITIAL_STATE = {
   data: [],
   limit: 50,
   offset: 0,
+  loading: false,
 };
 
 export default function comics(state = INITIAL_STATE, action) {
   switch (action.type) {
     case Types.ADD_REQUEST:
-      return { ...state };
+      return { ...state, loading: true };
 
     case Types.ADD_SUCCESS:
       return {
         ...state,
+        loading: false,
         offset: state.offset + state.limit,
         data: [...state.data, ...action.payload.data.results],
       };
     case Types.ADD_FAILURE:
-      return { ...state };
+      return { ...state, loading: false };
 
     default:
       return state;
