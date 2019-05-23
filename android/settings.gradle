@@ -1,0 +1,3 @@
+rootProject.name = 'marvel_react_native_redux_saga'
+
+include ':app'
