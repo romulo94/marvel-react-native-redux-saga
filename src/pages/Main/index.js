@@ -18,10 +18,18 @@ import { Creators as ComicActions } from '~/store/ducks/comics';
 // import { Container } from './styles';
 
 const styles = StyleSheet.create({
+  cardText: {
+    color: '#010101',
+    fontSize: 20,
+    fontWeight: 'bold',
+  },
   container: {
+    alignItems: 'center',
     backgroundColor: '#eeeeee',
-    marginTop: 20,
-    padding: 30,
+    borderRadius: 5,
+    flex: 1,
+    margin: 25,
+    padding: 25,
   },
   containerGeral: {
     backgroundColor: 'black',
@@ -29,6 +37,7 @@ const styles = StyleSheet.create({
   },
 
   img: {
+    borderRadius: 60,
     height: 120,
     width: 120,
   },
@@ -36,7 +45,7 @@ const styles = StyleSheet.create({
   list: {
     alignItems: 'center',
     flex: 1,
-    justifyContent: 'center',
+    // justifyContent: 'center',
     paddingHorizontal: 20,
   },
 
@@ -64,6 +73,7 @@ class Main extends Component {
   renderComic = ({ item }) => (
     <View style={styles.container} key={item.id}>
       <Text
+        style={styles.cardText}
         key={item.id}
         // onPressItem={this._onPressItem}
         // selected={!!this.state.selected.get(item.id)}
@@ -94,7 +104,7 @@ class Main extends Component {
       <View style={styles.containerGeral}>
         <FlatList
           style={{ marginTop: 30 }}
-          contentContainerStyle={styles.list}
+          // contentContainerStyle={styles.list}
           onEndReached={this.loadComics}
           onEndReachedThreshold={0.1}
           keyExtractor={item => JSON.stringify(item.id)}
